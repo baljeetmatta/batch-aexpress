@@ -9,7 +9,15 @@ const path=require("path");
 //if(req.url=="/" && req.method=="GET")
 const app=express();
 app.use(express.static("public"));
+app.use(express.urlencoded({extended:false}))
 
+
+app.post("/getdata",(req,res)=>{
+
+    console.log(req.body);
+    res.send("Welcome "+req.body.yourname);
+
+})
 app.get("/",(req,res)=>{
     res.sendFile( path.join(__dirname,"./public/home.html"));
 })
