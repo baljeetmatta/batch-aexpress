@@ -1,6 +1,7 @@
 //const http=require("http");
 const express=require("express");
 const path=require("path");
+
 //variable,function,object,class
 //express object  1 default function 
 //const server=http.createServer((req,res)=>{

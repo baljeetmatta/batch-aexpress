@@ -1,0 +1,38 @@
+<html>
+    <body>
+        <form action="/addTask" method="post">
+        <input type="text" name="title">
+        <input type="submit"/>
+    </form>
+    <ul id="tasks">
+
+    </ul>
+    <script>
+        let tasks=document.querySelector("#tasks");
+
+        function fetchData()
+        {
+            fetch("/alltasks").then((data)=>{
+                return data.json();
+
+            }).then((data)=>{
+                displayData(data);
+            }).catch((e)=>{
+
+            })
+        }
+        fetchData();
+        function displayData(data)
+        {
+            data.forEach((item)=>{
+                let li=document.createElement("li");
+                li.innerHTML=item.title;
+                tasks.append(li);
+
+            })
+        }
+
+        </script>
+
+        </body>
+        </html>
